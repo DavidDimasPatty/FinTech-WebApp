@@ -40,7 +40,7 @@ const CustomerList = () => {
 
   return (
     <div >
-      <nav class="breadcrumb" aria-label="breadcrumbs">
+      <nav class="breadcrumb mt-4 ml-3" aria-label="breadcrumbs">
         <ul>
           <li><a href="/home">Home</a></li>
 

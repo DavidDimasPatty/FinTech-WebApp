@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import { ProSidebar, Menu, MenuItem, SubMenu,SidebarContent,SidebarFooter } from 'react-pro-sidebar';
 import 'react-pro-sidebar/dist/css/styles.css';
 import './dashboard.css'
+import { NavLink } from 'react-router-dom';
 
 import { ReactSession } from 'react-client-session';
 
@@ -24,25 +25,22 @@ const Dashboard = ({  collapsed, toggled, handleToggleSidebar }) => {
     <p class="menu-label is-hidden-touch">Navigation</p>
     <ul class="menu-list">
       <li>
-        <a href="/home" class="is-active">
-          <span class="icon"><i class="fa fa-home"></i></span> Home
-        </a>
+      <NavLink to="/home" activeClassName="active">
+        Home</NavLink>
       </li>
       <li>
-        <a href="/customer" class="">
-          <span class="icon"><i class="fa fa-table"></i></span> Customer List
-        </a>
+      <NavLink to="/customer" activeClassName="active">
+        Customer List</NavLink>
       </li>
       <li>
-        <a href="#" class="">
-          <span class="icon"><i class="fa fa-info"></i></span> Profile
-        </a>
+      <NavLink to="/profile" activeClassName="active">
+        Profile</NavLink>
       </li>
       
       <li>
-        <a href="/" class="">
-          <span class="icon"><i class="fa fa-info"></i></span> Log Out
-        </a>
+      <NavLink to="/" onClick={logout} activeClassName="">
+        Log Out</NavLink>
+      
       </li>
     </ul>
 
