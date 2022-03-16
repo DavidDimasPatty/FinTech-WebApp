@@ -12,7 +12,7 @@ function App() {
 
   ReactSession.setStoreType("sessionStorage");
   return (
-    <Router>
+    <Router >
           <Switch>
            <Route exact path="/">
                 <Login />
@@ -22,18 +22,16 @@ function App() {
                 <AddUser />
             </Route>
             <Route exact path="/home">
-           
-            <body className="baris">
+            <div className="baris">
             <Dashboard />
                  <Home />
-            </body>
-            
+                 </div>
             </Route>
             <Route exact path="/customer">
-                <body className="baris">
+                <div className="baris">
                 <Dashboard />
                  <CustomerList />
-                 </body>
+                 </div>
             </Route>
 
             <Route exact path="/profile/:id">

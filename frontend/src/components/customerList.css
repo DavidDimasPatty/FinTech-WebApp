@@ -1,6 +1,9 @@
-.container{
+.containers{
     display: flex;
-    flex-direction: row;}
-    .link{
+    flex-direction: row;
+}
+    .cards{
+
+        font-size: medium !important;
         text-decoration: none;
     }

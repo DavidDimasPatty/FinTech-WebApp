@@ -5,33 +5,51 @@ import { ProSidebar, Menu, MenuItem, SubMenu,SidebarContent,SidebarFooter } from
 import 'react-pro-sidebar/dist/css/styles.css';
 import './dashboard.css'
 
+import { ReactSession } from 'react-client-session';
+
+function logout() {
+  ReactSession.set("login", "false");
+}
+
 const Dashboard = ({  collapsed, toggled, handleToggleSidebar }) => {
    
   
     return (
-        <div className='sidebar'>
-                <ProSidebar
-                  collapsed={collapsed}
-                  toggled={toggled}
-                  breakPoint="md"
-                  onToggle={handleToggleSidebar}>
-                <Menu iconShape="square">
-                    <MenuItem >CustomerList
-                    <Link to="/customer" />       
-                    </MenuItem>
-                    <MenuItem >Onboard Customer</MenuItem>
-                    <MenuItem >Home
-                    <Link to="/home" />       
-                    </MenuItem>
-                    <MenuItem >Profile
-                    <Link to="/profile" />       
-                    </MenuItem>
-                    <MenuItem >Log Out
-                    <Link to="/" />       
-                    </MenuItem>
-                </Menu>
-                </ProSidebar>  
-    </div>
+
+<div id="app" >   
+<section class="main-content columns is-fullheight ">
+
+  <aside class="column is-narrow-mobile is-fullheight section is-hidden-mobile pr-4">
+
+    <p class="menu-label is-hidden-touch">Navigation</p>
+    <ul class="menu-list">
+      <li>
+        <a href="/home" class="is-active">
+          <span class="icon"><i class="fa fa-home"></i></span> Home
+        </a>
+      </li>
+      <li>
+        <a href="/customer" class="">
+          <span class="icon"><i class="fa fa-table"></i></span> Customer List
+        </a>
+      </li>
+      <li>
+        <a href="#" class="">
+          <span class="icon"><i class="fa fa-info"></i></span> Profile
+        </a>
+      </li>
+      
+      <li>
+        <a href="/" class="">
+          <span class="icon"><i class="fa fa-info"></i></span> Log Out
+        </a>
+      </li>
+    </ul>
+
+  </aside>
+  </section>
+  </div>
+  
   )
 }
 

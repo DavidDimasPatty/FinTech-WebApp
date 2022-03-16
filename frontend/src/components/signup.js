@@ -2,6 +2,11 @@ import React from 'react'
 import {useState} from 'react'
 import axios from "axios";
 import { useHistory} from 'react-router-dom';
+import { MDBContainer, MDBRow, MDBCol,
+  MDBCard,MDBBtn } from "mdbreact";
+  import { Button,Section } from 'react-bulma-components';
+
+import 'bulma/css/bulma.min.css';
 
 const AddUser = () => {
     const [username, setusername]=useState('');
@@ -30,32 +35,49 @@ const AddUser = () => {
         history.push("/");
     }
   return (
-    <div>
-                <div className='field'>
-                    <label className='label'>Username</label>
-                    <input className="input"
+    <center>
+    <MDBContainer size="12" >
+      <MDBCard className='mt-5 column is-6'>
+    <MDBCol>
+    <MDBRow className='mb-2'>
+      <MDBCol><h2 className='is-size-2'>Sign Up Form</h2></MDBCol>
+    </MDBRow>
+    <MDBRow>
+      <MDBCol>Username</MDBCol>
+    </MDBRow>
+    <MDBRow>
+      <MDBCol><input className="input is-info is-small column is-6"
                      type="text"
                      placeholder="username"
                      value={username}
                      onChange={(e) =>setusername(e.target.value)}
-                     ></input>
-                </div>
-                <div className='field'>
-                    <label className='label'>Password</label>
-                    <input className="input" 
+                     /></MDBCol>
+    </MDBRow>
+    <MDBRow>
+      <MDBCol><p>Password</p></MDBCol>
+    </MDBRow>
+
+    <MDBRow>
+      <MDBCol> <input className="input is-info is-small column is-6" 
                     type="password"
                      placeholder="password"
                      value={password}
                      onChange={(e) =>setpassword(e.target.value)}
-                     ></input>
-                </div>
-               
-                <div className='field'>
-                        <button onClick={checkusername} className='button is-primary'>Save</button>
-                 </div>
+                     />
+      </MDBCol>
+    </MDBRow>
+    <MDBRow className='mt-2 pb-4'>
+      <MDBCol>
+    
+      <Button color="info" onClick={checkusername}>Sign Up</Button>
+  
+        </MDBCol>
+     </MDBRow>
+    </MDBCol>
+    </MDBCard>
+  </MDBContainer>
             
-           
-    </div>
+    </center>  
   )
 }
 
