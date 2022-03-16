@@ -61,6 +61,10 @@ const CustomerList = () => {
             <MDBRow>
               <MDBCol>{customers.email}</MDBCol>
             </MDBRow>
+            <MDBRow>
+            <MDBCol>Status </MDBCol>
+              <MDBCol>Status : Pending</MDBCol>
+            </MDBRow>
 
             <MDBRow className='mt-4 pb-2'>
               <center> <MDBCol><Link to={`/profile/${customers.id}`} className='button is-small is-info'>Detail</Link></MDBCol></center>

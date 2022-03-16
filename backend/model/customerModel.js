@@ -12,6 +12,12 @@ const customer=db.define('customer',{
     },
     password:{
         type:DataTypes.STRING
+    },
+    birth:{
+        type:DataTypes.DATE
+    },
+    country:{
+        type:DataTypes.STRING
     }
 
 },{

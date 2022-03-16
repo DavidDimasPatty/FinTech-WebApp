@@ -11,6 +11,8 @@ import { ReactSession } from 'react-client-session';
 const Profile = () => {
     const [name, setName]=useState('');
     const [email, setEmail]=useState('');
+    const [birth, setBirth]=useState('');
+    const [country, setCountry]=useState('');
     const {id}=useParams();
 
    
@@ -24,6 +26,8 @@ const Profile = () => {
         console.log(response.data[0]);
         setName(response.data[0].name);
         setEmail(response.data[0].email);
+        setBirth(response.data[0].birth);
+        setCountry(response.data[0].country);
     }
     const token=ReactSession.get("login");
     console.log(token);
@@ -54,6 +58,15 @@ const Profile = () => {
       <center>  <MDBCol><h3 className='is-size-2'>{email}</h3></MDBCol></center>
       </MDBRow>
      
+      <MDBRow>
+      <center>  <MDBCol><h3 className='is-size-2'>{birth}</h3></MDBCol></center>
+      </MDBRow>
+
+
+      <MDBRow>
+      <center>  <MDBCol><h3 className='is-size-2'>{country}</h3></MDBCol></center>
+      </MDBRow>
+
       </MDBCol>
       </MDBCard>
       
