@@ -1,2 +1,0 @@
-# FinTech-WebApp
-FinTech-WebApp

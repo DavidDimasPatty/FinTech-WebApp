@@ -3,8 +3,11 @@ const db=require("../dbconfig.js")
 
 const {DataTypes}=sequelize;
 
-const user=db.define('user',{
-    username:{
+const customer=db.define('customer',{
+    name:{
+        type:DataTypes.STRING
+    }, 
+    email:{
         type:DataTypes.STRING
     },
     password:{
@@ -15,4 +18,4 @@ const user=db.define('user',{
     freezeTableName:true
 });
 
-module.exports=user;
+module.exports=customer;

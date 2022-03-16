@@ -9,15 +9,40 @@ const getAllUser= async (req,res)=>{
     }
 }
 
-const getIdUser= async (req,res)=>{
+const login= async (req,res)=>{
     try {
     const users= await user.findAll({
         where:{
-            username:req.params.username,
-            password:req.params.password
+            username:req.body.username,
+            password:req.body.password
         }
     });
-    res.json(users[0]);   
+    if(users){
+    console.log(users);
+    res.json(users);  
+    }
+    else{
+      res.json({"message":"not found"})  
+    }
+    } catch (error) {
+        console.log(error);    
+    }
+}
+
+const checkusername= async (req,res)=>{
+    try {
+    const users= await user.findAll({
+        where:{
+            username:req.body.username
+        }
+    });
+    if(users){
+    console.log(users);
+    res.json(users);  
+    }
+    else{
+      res.json({"message":"not found"})  
+    }
     } catch (error) {
         console.log(error);    
     }
@@ -72,7 +97,8 @@ const deleteUser= async (req,res)=>{
 module.exports={
     getAllUser:getAllUser,
     createUser:createUser,
-    getIdUser:getIdUser,
+    login:login,
     updateUser:updateUser,
-    deleteUser:deleteUser
+    deleteUser:deleteUser,
+    checkusername:checkusername
 };
