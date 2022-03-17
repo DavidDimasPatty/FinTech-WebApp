@@ -1,7 +1,7 @@
 # FinTech-WebApp
 FinTech-WebApp
 
-Foillow this steps before you can run write this on terminal
+Follow this steps before you can run write this on terminal
 Steps: 
 1. On folder Front End and Back End: 
      npm install
