@@ -3,11 +3,11 @@ const server = jsonServer.create();
 const express= require("express")
 const cors= require('cors')
 const path = require('path')
+const app = express();
 const router = jsonServer.router(path.join(__dirname, 'db.json'))
 const middlewares = jsonServer.defaults({
-      static: "./public"
-    }
-  );
+  static: './build'
+});
 const PORT = process.env.PORT || 5000;
 server.use(middlewares);
 server.use(jsonServer.rewriter({
