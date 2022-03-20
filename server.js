@@ -15,8 +15,8 @@ server.use(jsonServer.rewriter({
 }))
 server.use(router);
 if (process.env.NODE_ENV === 'production') {  
-  app.use(express.static(path.join(__dirname, "client/build")));
-  app.get("/*", (_, res) => {
+  server.use(express.static(path.join(__dirname, "client/build")));
+  server.get("/*", (_, res) => {
    res.sendFile(path.join(__dirname, "client/build", "index.html"));
   });
 }
