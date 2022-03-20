@@ -4,9 +4,9 @@ const express= require("express")
 const cors= require('cors')
 const path = require('path')
 const app = express();
-const router = jsonServer.router(path.join(__dirname, 'db.json'))
+const router = jsonServer.router( db.json)
 const middlewares = jsonServer.defaults({
-  static: './build'
+  static: path.join(__dirname,'./node_modules/json-server/public')
 });
 const PORT = process.env.PORT || 5000;
 server.use(middlewares);
