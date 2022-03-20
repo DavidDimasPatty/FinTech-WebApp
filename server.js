@@ -14,12 +14,10 @@ server.use(jsonServer.rewriter({
   '/api/*': '/$1'
 }))
 server.use(router);
-if (process.env.NODE_ENV === 'production') {  
-  server.use(express.static(path.join(__dirname, "client/build")));
-  server.get("/*", (_, res) => {
-   res.sendFile(path.join(__dirname, "client/build", "index.html"));
-  });
-}
+server.use(express.static(path.join(__dirname, "client/build")));
+server.get("/*", (_, res) => {
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
+  })
 server.use(cors());
 server.listen(PORT, () => {
   console.log('Server is running');
