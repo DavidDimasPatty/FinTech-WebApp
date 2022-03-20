@@ -46,7 +46,7 @@ const CustomerList = () => {
         <ul>
           <li><Link to={`/home`}>Home</Link></li>
 
-          <li><Link to={`/customer`}>Customer List</Link></li>
+          <li><Link to={`/customers`}>Customer List</Link></li>
         </ul>
       </nav>
       <div className='containers'>
@@ -69,7 +69,7 @@ const CustomerList = () => {
             </MDBRow>
 
             <MDBRow className='mt-4 pb-2'>
-              <center> <MDBCol><Link to={`/customer/${customers.id}`} className='button is-small is-info'>Detail</Link></MDBCol></center>
+              <center> <MDBCol><Link to={`/customers/${customers.id}`} className='button is-small is-info'>Detail</Link></MDBCol></center>
             </MDBRow>
           </MDBCol>
         </MDBCard>

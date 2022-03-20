@@ -29,7 +29,7 @@ const Dashboard = ({  collapsed, toggled, handleToggleSidebar }) => {
         Home</NavLink>
       </li>
       <li>
-      <NavLink to="/customer" activeClassName="active">
+      <NavLink to="/customers" activeClassName="active">
         Customer List</NavLink>
       </li>
       <li>

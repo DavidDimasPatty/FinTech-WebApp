@@ -27,14 +27,14 @@ function App() {
                  <Home />
                  </div>
             </Route>
-            <Route exact path="/customer">
+            <Route exact path="/customers">
                 <div className="baris">
                 <Dashboard />
                  <CustomerList />
                  </div>
             </Route>
 
-            <Route exact path="/customer/:id">
+            <Route exact path="/customers/:id">
                 <body className="baris">
                 <Dashboard />
                  <Profile />

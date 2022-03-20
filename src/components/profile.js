@@ -48,8 +48,8 @@ const Profile = () => {
   <ul>
     <li><Link to={`/home`}>Home</Link></li>
 
-    <li><Link to={`/customer`}>Customer List</Link></li>
-    <li><Link to={`/customer/${id}`}>Detail</Link></li>
+    <li><Link to={`/customers`}>Customer List</Link></li>
+    <li><Link to={`/customers/${id}`}>Detail</Link></li>
     </ul>
     </nav>
     <MDBCard className='mt-5 column is-10'>
