@@ -1,16 +1,28 @@
-const jsonServer = require('json-server');
-const app = jsonServer.create();
+const jsonServer = require("json-server");
+const server= jsonServer.create();
 const path = require('path');
-const express = require('express');
-const middlewares = jsonServer.defaults();
 const router = jsonServer.router('db.json');
-const port = process.env.PORT || 5000;
+const express = require('express');
+const cors = require("cors");
+const middlewares = jsonServer.defaults();
+const port=process.env.PORT||5000;
+server.use(
+  jsonServer.rewriter({
+    '/api/*': '/$1',
+  }
+  )
+);
+server.use('/db', middlewares, router);
+server.use(express.static(path.join(__dirname, 'build')));
 
-app.use('/db', middlewares, router);
-app.use(express.static(path.join(__dirname, 'build')));
-
-app.get('/*', function (req, res) {
+server.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
+server.use(cors());
+server.listen(port,()=>{
+  console.log(`Server is running on ${port}`);
+})
 
-server.listen(port);
+//const jsonServer = require('json-server');
+//const app = jsonServer.create();
+
