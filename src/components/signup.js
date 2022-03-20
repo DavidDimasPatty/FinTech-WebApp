@@ -36,7 +36,7 @@ const AddUser = () => {
     const saveUser = async (e)=>{
       const devEnv=process.env.NODE_ENV !== "production";
       const {REACT_APP_DEV_URL,REACT_APP_PROD_URL} =process.env;
-        await axios.post(`${devEnv  ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}`,{     
+        await axios.post(`${devEnv  ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}/user`,{     
             username:username,
             password:password,
             email:email,
