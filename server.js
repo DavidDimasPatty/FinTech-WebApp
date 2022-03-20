@@ -4,8 +4,10 @@ const express= require("express")
 const cors= require('cors')
 const path = require('path')
 const app = express();
-const router = jsonServer.router( db.json)
-const middlewares = jsonServer.defaults();
+const router = jsonServer.router('db.json')
+const middlewares = jsonServer.defaults({
+  static: path.join(__dirname,'../node_modules/json-server/public')
+});
 const PORT = process.env.PORT || 5000;
 server.use(middlewares);
 server.use(cors());
