@@ -34,7 +34,7 @@ function App() {
                  </div>
             </Route>
 
-            <Route exact path="/profile/:id">
+            <Route exact path="/customer/:id">
                 <body className="baris">
                 <Dashboard />
                  <Profile />
