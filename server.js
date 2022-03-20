@@ -8,10 +8,7 @@ const middlewares = jsonServer.defaults({
 const PORT = process.env.PORT || 5000;
 server.use(middlewares);
 server.use(jsonServer.rewriter({
-  '/api/': '/',
-  '/api/home/': '/home',
-  '/api/user':'/user',
-  '/api/customers/:id' : '/customers/:id'
+  '/api/*': '/'
 }))
 server.use(router);
 server.use(cors());

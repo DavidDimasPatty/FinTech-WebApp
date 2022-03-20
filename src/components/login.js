@@ -19,7 +19,7 @@ const Login = () => {
     const login = async (e)=>{
         const devEnv=process.env.NODE_ENV !== "production";
         const {REACT_APP_DEV_URL,REACT_APP_PROD_URL} =process.env;
-         await axios.get(`${devEnv  ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}/user`,{
+         await axios.get(`${devEnv  ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}/api/user`,{
             params: {
               username:username,
               password:password
