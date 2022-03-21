@@ -1,4 +1,5 @@
 const jsonServer = require('json-server');
+const serv = jsonServer.create();
 const express= require("express")
 const cors= require('cors')
 const path = require('path')
@@ -11,7 +12,6 @@ const PORT = process.env.PORT || 5000;
 if (process.env.NODE_ENV === 'production') {
   app.use('/api', jsonServer.router('./db.json'))
    
-  app.get('/api', (req, res) => res.sendFile('./db.json'))
   app.use(express.static(path.join(__dirname, 'build')));
 
   app.get('*', function(req, res) {
