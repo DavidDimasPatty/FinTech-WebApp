@@ -9,16 +9,16 @@ const PORT = process.env.PORT || 5000;
 
 
 if (process.env.NODE_ENV === 'production') {
-  app.use('/api', app.router('./db.json'),jsonServer.defaults({noCors: false}))
+  app.use('/api', jsonServer.router('./db.json'))
    
-  // Serve any static files
-  app.use(express.static(path.join(__dirname, 'build')));
-// Handle React routing, return all requests to React app
-  app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-  });
+  
+  //app.use(express.static(path.join(__dirname, 'build')));
+
+  //app.get('*', function(req, res) {
+   // res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  //});
 }else{
-  app.use('/', app.router('./db.json'),jsonServer.defaults({noCors: false}))
+  app.use('/', jsonServer.router('./db.json'),jsonServer.defaults({noCors: false}))
 
 }
 app.listen(PORT, () => {
