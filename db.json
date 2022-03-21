@@ -21,6 +21,14 @@
       "createdAt": "18-03-2022 07:59:18",
       "updatedAt": "18-03-2022 07:59:18",
       "id": 3
+    },
+    {
+      "username": "ji",
+      "password": "ji",
+      "email": "ji",
+      "createdAt": "21-03-2022 01:24:59",
+      "updatedAt": "21-03-2022 01:24:59",
+      "id": 4
     }
   ],
   "customer": [
