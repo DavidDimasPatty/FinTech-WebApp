@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 5000;
 
 
 if (process.env.NODE_ENV === 'production') {
-  app.use('/api', jsonServer.router('db.json'),jsonServer.defaults({noCors: false}))
+  app.use('/api', app.router('./db.json'),jsonServer.defaults({noCors: false}))
    
   // Serve any static files
   app.use(express.static(path.join(__dirname, 'build')));
@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
   });
 }else{
-  app.use('/', jsonServer.router('db.json'),jsonServer.defaults({noCors: false}))
+  app.use('/', app.router('./db.json'),jsonServer.defaults({noCors: false}))
 
 }
 app.listen(PORT, () => {

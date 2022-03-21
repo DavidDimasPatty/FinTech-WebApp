@@ -25,9 +25,7 @@ const Profile = () => {
     const devEnv=process.env.NODE_ENV !== "production";
     const {REACT_APP_DEV_URL,REACT_APP_PROD_URL} =process.env;
         const response= await axios.get(`${devEnv  ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}/customer/${id}`,{
-          params:{
-            id:id
-          }
+          
         });
         console.log(response.data);
         setName(response.data.name);
