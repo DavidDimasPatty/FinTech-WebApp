@@ -10,7 +10,8 @@ const PORT = process.env.PORT || 5000;
 
 
 if (process.env.NODE_ENV === 'production') {
-   
+  
+  app.use('/api', jsonServer.router('./db.json')) 
   app.use(express.static(path.join(__dirname, 'build')));
 
   app.get('/*', function(req, res) {
@@ -18,7 +19,6 @@ if (process.env.NODE_ENV === 'production') {
 
   });
   
-  app.use('/api', jsonServer.router('./db.json'))
 }else{
   app.use('/', jsonServer.router('./db.json'),jsonServer.defaults({noCors: false}))
 
