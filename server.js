@@ -12,11 +12,11 @@ if (process.env.NODE_ENV === 'production') {
   app.use('/api', jsonServer.router('./db.json'))
    
   
-  //app.use(express.static(path.join(__dirname, 'build')));
+  app.use(express.static(path.join(__dirname, 'build')));
 
-  //app.get('*', function(req, res) {
-   // res.sendFile(path.join(__dirname, 'build', 'index.html'));
-  //});
+  app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });
 }else{
   app.use('/', jsonServer.router('./db.json'),jsonServer.defaults({noCors: false}))
 
