@@ -18,7 +18,7 @@ const AddUser = () => {
     const checkusername = async (e)=>{
       const devEnv=process.env.NODE_ENV !== "production";
       const {REACT_APP_DEV_URL,REACT_APP_PROD_URL} =process.env;
-        await axios.get(`${devEnv  ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}/user`,{
+        await axios.get(`${devEnv  ? REACT_APP_DEV_URL : 'https://fintech-webapp-easy.herokuapp.com/api/user'}`,{
           params:{
            username:username
           }
@@ -36,7 +36,8 @@ const AddUser = () => {
     const saveUser = async (e)=>{
       const devEnv=process.env.NODE_ENV !== "production";
       const {REACT_APP_DEV_URL,REACT_APP_PROD_URL} =process.env;
-        await axios.post(`${devEnv  ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}/user`,{     
+       
+    await axios.post(`${devEnv  ? REACT_APP_DEV_URL : 'https://fintech-webapp-easy.herokuapp.com/api/user'}`,{     
             username:username,
             password:password,
             email:email,
