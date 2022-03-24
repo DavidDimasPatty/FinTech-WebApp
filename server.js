@@ -1,7 +1,7 @@
 const jsonServer = require('json-server');
 jsonServer.create();
-const express= require("express")
-const cors= require('cors')
+const express = require("express")
+const cors = require('cors')
 const path = require('path')
 const app = express();
 app.use(cors())

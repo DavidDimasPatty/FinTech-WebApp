@@ -2,9 +2,23 @@
     display: flex;
     flex-direction: row;
 }
-
-    .cards{
-
-        font-size: medium !important;
-        text-decoration: none;
-    }
+.cards{
+    font-size: medium !important;
+    text-decoration: none;
+}
+.customerCard{
+    width: 180px;
+    overflow: hidden;
+}
+.cardInfo{
+    text-align: center;
+    text-overflow: ellipsis;
+    padding-left: 5px;
+    padding-right: 5px;
+    overflow: hidden;
+}
+.cardButton{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}

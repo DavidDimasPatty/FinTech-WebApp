@@ -1,13 +1,10 @@
-#app {
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
+#app{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (max-width: 768px) {
+  #menu-toggle:checked + .nav-menu {
+    display: block;
   }
-  .footer {
-    margin-top: -12px;
-  }
-  @media screen and (max-width: 768px) {
-    #menu-toggle:checked + .nav-menu {
-      display: block;
-    }
-  }
+}
