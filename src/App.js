@@ -43,10 +43,10 @@ function App() {
         </Route>
         
         <Route exact path="/customers/:id">
-          <body className="navList">
+          <div className="navList">
             <Dashboard/>
             <Profile/>
-          </body>
+          </div>
         </Route>
         
       </Switch>

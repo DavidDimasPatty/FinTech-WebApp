@@ -1,32 +1,31 @@
-import React, { useEffect, useState } from 'react';
-import axios from "axios";
-import { Link } from "react-router-dom";
-import { ProSidebar, Menu, MenuItem, SubMenu, SidebarContent, SidebarFooter } from 'react-pro-sidebar';
-import 'react-pro-sidebar/dist/css/styles.css';
-import './dashboard.css';
-import { NavLink } from 'react-router-dom';
-import { ReactSession } from 'react-client-session';
+import React, {useEffect, useState} from 'react'
+import {ReactSession} from 'react-client-session'
+import {NavLink} from 'react-router-dom'
+import axios from 'axios'
+import {Link} from 'react-router-dom'
+import {ProSidebar, Menu, MenuItem, SubMenu, SidebarContent, SidebarFooter} from 'react-pro-sidebar'
+import 'react-pro-sidebar/dist/css/styles.css'
+import './dashboard.css'
 
 function logout() {
   ReactSession.set("login", "false");
 }
 
-const Dashboard = ({ collapsed, toggled, handleToggleSidebar }) => {
+const Dashboard = ({collapsed, toggled, handleToggleSidebar}) => {
 
   return (
 
-  <div id="app" >
+  <div className="navMenu">
 
-    <section class="main-content columns is-fullheight">
+    <section className="main-content columns is-fullheight">
 
-      <aside class="column is-narrow-mobile is-fullheight section is-hidden-mobile">
+      <aside className="column is-narrow-mobile is-fullheight section is-hidden-mobile">
         
-        <p class="menu-label is-hidden-touch">Navigation</p>
+        <p className="menu-label is-hidden-touch">Navigation</p>
 
-        <ul class="menu-list">
+        <ul className="menu-list">
           <li><NavLink to="/home" activeClassName="active">Home</NavLink></li>
           <li><NavLink to="/customers" activeClassName="active">Customer List</NavLink></li>
-          <li><NavLink to="/profile" activeClassName="active">Profile</NavLink></li>
           <li><NavLink to="/" onClick={logout} activeClassName="">Log Out</NavLink></li>
         </ul>
 

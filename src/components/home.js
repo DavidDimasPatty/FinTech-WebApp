@@ -1,28 +1,30 @@
-import React, { useEffect, useState } from 'react';
-import axios from "axios";
-import { Link } from "react-router-dom";
-import { ReactSession } from 'react-client-session';
-import { useHistory, useParams } from 'react-router-dom';
-import "./home.css";
-import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBBtn } from "mdbreact";
-import 'fa-icons';
+import React, {useEffect, useState} from 'react'
+import axios from 'axios'
+import {Link} from 'react-router-dom'
+import {ReactSession} from 'react-client-session'
+import {useHistory, useParams} from 'react-router-dom'
+import './home.css'
+import {MDBContainer, MDBRow, MDBCol, MDBCard, MDBBtn} from 'mdbreact'
+import 'fa-icons'
 
 const Home = () => {
 
   const token = ReactSession.get("login");
-  console.log(token);
+  // console.log(token);
   const history = useHistory();
 
   if(token != "true") {
     history.push('/')
-    return(<div style={'height:100'}></div>);
+    return(
+      <div style={'height:100'}></div>
+    );
   }
 
   return (
 
-  <div class="container column is-20">
+  <div className="container column is-20">
 
-    <nav class="breadcrumb" aria-label="breadcrumbs">
+    <nav className="breadcrumb" aria-label="breadcrumbs">
       <ul>
         <li><Link to={`/home`}>Home</Link></li>
       </ul>

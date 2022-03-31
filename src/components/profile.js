@@ -1,11 +1,11 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
-import axios from "axios";
-import { Link } from "react-router-dom";
-import { useHistory, useParams } from 'react-router-dom';
-import "./profile.css"
-import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBBtn } from "mdbreact";
-import { ReactSession } from 'react-client-session';
+import {ReactSession} from 'react-client-session'
+import {useState, useEffect} from 'react'
+import axios from 'axios'
+import {Link} from 'react-router-dom'
+import {useHistory, useParams} from 'react-router-dom'
+import './profile.css'
+import {MDBContainer, MDBRow, MDBCol, MDBCard, MDBBtn} from 'mdbreact'
 
 const Profile = () => {
     const [name, setName] = useState('');
@@ -14,16 +14,17 @@ const Profile = () => {
     const [country, setCountry] = useState('');
     const {id} = useParams();
     const history=useHistory();
-    useEffect(()=>{
+    
+    useEffect(() => {
         getProfile();
-    },[]);
+    }, []);
 
     const getProfile = async () => {
       const devEnv = process.env.NODE_ENV !== "production";
       const {REACT_APP_DEV_URL, REACT_APP_PROD_URL} = process.env;
       const response = await axios.get(`${devEnv  ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}/customer/${id}`,)
-      console.log(response.status);
-      console.log(response.data);
+      // console.log(response.status);
+      // console.log(response.data);
       setName(response.data.name);
       setEmail(response.data.email);
       setBirth(response.data.birth);
@@ -31,18 +32,19 @@ const Profile = () => {
     }
 
     const token = ReactSession.get("login");
-    console.log(token);
+    // console.log(token);
   
     if(token != "true") {
       history.push('/')
-      return(<div style={'height:100'}></div>);
+      return(
+        <div style={'height:100'}></div>
+      );
     }
     
-    return (
-    
-    <div class="container column is-20" >
+    return(
+    <div className="container column is-20">
 
-      <nav class="breadcrumb" aria-label="breadcrumbs">
+      <nav className="breadcrumb" aria-label="breadcrumbs">
         <ul>
           <li><Link to={`/home`}>Home</Link></li>
           <li><Link to={`/customers`}>Customer List</Link></li>
@@ -79,8 +81,7 @@ const Profile = () => {
       </MDBCard>
     
     </div>
-  
-  )
+    )
 
 }
 

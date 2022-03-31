@@ -12,7 +12,7 @@ const Login = () => {
   const [password, setPassword] = useState();
 
   const token = ReactSession.get("login");
-  console.log(token);
+  // console.log(token);
 
   const history = useHistory();
 
@@ -28,8 +28,8 @@ const Login = () => {
       }
     }).then((respon) => {
       if(respon.data.length !== 0) {
-        console.log("success");
-        console.log(respon.data);
+        // console.log("success");
+        // console.log(respon.data);
         ReactSession.set("login", "true");
         history.push("/home");
       }

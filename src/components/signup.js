@@ -23,7 +23,7 @@ const AddUser = () => {
         username:username
       }
     }).then((respon) => {
-      console.log(respon.data);
+      // console.log(respon.data);
       if(respon.data.length === 0) {
         saveUser();
       }
