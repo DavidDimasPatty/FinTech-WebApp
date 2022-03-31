@@ -17,26 +17,32 @@ const Login = () => {
   const history = useHistory();
 
   const login = async (e) => {
+    if(username && password){
+      const devEnv = process.env.NODE_ENV !== "production";
+      const {REACT_APP_DEV_URL, REACT_APP_PROD_URL} = process.env;
+  
+      await axios.get(`${devEnv ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}/user`, {
+        params: {
+          username:username,
+          password:password
+        }
+      }).then((respon) => {
+        if(respon.data.length !== 0) {
+          // console.log("success");
+          // console.log(respon.data);
+          ReactSession.set("login", "true");
+          history.push("/home");
+        }
+        else{
+          console.log("failed to login.");
+        }
+      }).catch((err) => console.log(err));
+    }
+    else{
+      window.alert("username and password can't be empty")
+    }
 
-    const devEnv = process.env.NODE_ENV !== "production";
-    const {REACT_APP_DEV_URL, REACT_APP_PROD_URL} = process.env;
 
-    await axios.get(`${devEnv ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}/user`, {
-      params: {
-        username:username,
-        password:password
-      }
-    }).then((respon) => {
-      if(respon.data.length !== 0) {
-        // console.log("success");
-        // console.log(respon.data);
-        ReactSession.set("login", "true");
-        history.push("/home");
-      }
-      else{
-        console.log("failed to login.");
-      }
-    }).catch((err) => console.log(err));
 
   }
   

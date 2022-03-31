@@ -25,11 +25,27 @@ const AddUser = () => {
     }).then((respon) => {
       // console.log(respon.data);
       if(respon.data.length === 0) {
-        saveUser();
+        if(username.length>0){
+          if(password.length>0){
+            if(email.length>0){
+              saveUser();
+            }
+            else{
+              window.alert('email can`t be empty');
+            }
+          }
+          else{
+            window.alert('password can`t be empty');
+          }
+        }
+        else {
+          window.alert('password can`t be empty');
+        }
       }
-      else {
-        window.alert('username already taken');
+      else{
+        window.alert('username, password, or email has been taken');
       }
+
     })
 
   }
