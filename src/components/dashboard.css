@@ -1,9 +1,9 @@
-.navMenu{
+.sidebarMenu{
     min-height: 100vh;
 }
 li > a.active{
     display: block;
     color: white;
-    background-color: blue;
+    background-color: #3e8ed0;
 }
     

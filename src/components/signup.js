@@ -1,19 +1,19 @@
-import React from 'react'
-import {useState} from 'react'
-import {useHistory} from 'react-router-dom'
-import moment from 'moment'
-import axios from 'axios'
-import 'bulma/css/bulma.min.css'
-import './signup.css'
+import React, {useState} from "react";
+import {useHistory} from "react-router-dom";
+import moment from "moment";
+import axios from "axios";
+import "bulma/css/bulma.min.css";
+import "./signup.css";
 
 const AddUser = () => {
-  const [username, setusername] = useState('');
-  const [password, setpassword] = useState('');
-  const [email, setemail] = useState('');
-  const history = useHistory();
-  const date_create = moment().format("DD-MM-YYYY hh:mm:ss")
 
-  const checkusername = async (e) => {
+  const history = useHistory();
+  const [username, setusername] = useState("");
+  const [password, setpassword] = useState("");
+  const [email, setemail] = useState("");
+  const date_create = moment().format("DD-MM-YYYY hh:mm:ss");
+
+  const validate = async (e) => {
 
     const devEnv = process.env.NODE_ENV !== "production";
     const {REACT_APP_DEV_URL, REACT_APP_PROD_URL} = process.env;
@@ -25,25 +25,25 @@ const AddUser = () => {
     }).then((respon) => {
       // console.log(respon.data);
       if(respon.data.length === 0) {
-        if(username.length>0){
-          if(password.length>0){
-            if(email.length>0){
+        if(username.length > 0) {
+          if(password.length > 0) {
+            if(email.length > 0) {
               saveUser();
             }
             else{
-              window.alert('email can`t be empty');
+              window.alert("Email can't be empty");
             }
           }
           else{
-            window.alert('password can`t be empty');
+            window.alert("Password can't be empty");
           }
         }
         else {
-          window.alert('password can`t be empty');
+          window.alert("Username can't be empty");
         }
       }
       else{
-        window.alert('username, password, or email has been taken');
+        window.alert("Username, password, or email has been taken");
       }
 
     })
@@ -71,23 +71,25 @@ const AddUser = () => {
     
     <center>
       
-      <div className='signupContainer'>
-        <div className='signupTitle'>Sign Up</div>
-          <form>
-            <div className='signupLabel'>Username</div>
-            <div className='signupInput'>
-              <input type="text" onChange={e => setusername(e.target.value)} placeholder="username" spellCheck="false" required/>
-            </div>
-            <div className='signupLabel'>Email</div>
-            <div className='signupInput'>
-              <input type="email" onChange={e => setemail(e.target.value)} placeholder="email" spellCheck="false" required/>
-            </div>
-            <div className='signupLabel'>Password</div>
-            <div className='signupInput'>
-              <input type="password" onChange={e => setpassword(e.target.value)} placeholder="password" required/>
-            </div>
-            <div><input type="submit" onClick={checkusername} value="Sign Up" className="signupButton"/></div>
-          </form>
+      <div className="signupContainer">
+
+        <div className="signupTitle">Sign Up</div>
+        
+        <form>
+
+          <div className="signupLabel">Username</div>
+          <div className="signupInput"><input type="text" onChange={e => setusername(e.target.value)} placeholder="username" spellCheck="false" required/></div>
+          
+          <div className="signupLabel">Email</div>
+          <div className="signupInput"><input type="email" onChange={e => setemail(e.target.value)} placeholder="email" spellCheck="false" required/></div>
+          
+          <div className="signupLabel">Password</div>
+          <div className="signupInput"><input type="password" onChange={e => setpassword(e.target.value)} placeholder="password" required/></div>
+          
+          <input type="submit" className="signupButton" onClick={validate} value="Sign Up"/>
+
+        </form>
+        
       </div>
     
     </center>

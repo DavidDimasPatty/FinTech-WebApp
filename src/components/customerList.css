@@ -7,18 +7,25 @@
     text-decoration: none;
 }
 .customerCard{
-    width: 180px;
+    max-width: 180px;
     overflow: hidden;
+    border: 1px solid;
+    border-color: #F0F0F0;
+    border-radius: 5px;
+    box-shadow: 1px 8px 8px 0px #F0F0F0;
+}
+.cardImage{
+    max-width: 180px;
 }
 .cardInfo{
+    padding: 0px 5px 0px 5px;
+}
+.cardLabel{
     text-align: center;
     text-overflow: ellipsis;
-    padding-left: 5px;
-    padding-right: 5px;
     overflow: hidden;
 }
 .cardButton{
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 10px 0px 10px 0px;
     text-align: center;
 }

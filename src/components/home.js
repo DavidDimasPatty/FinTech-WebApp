@@ -1,11 +1,7 @@
-import React, {useEffect, useState} from 'react'
-import axios from 'axios'
-import {Link} from 'react-router-dom'
-import {ReactSession} from 'react-client-session'
-import {useHistory, useParams} from 'react-router-dom'
-import './home.css'
-import {MDBContainer, MDBRow, MDBCol, MDBCard, MDBBtn} from 'mdbreact'
-import 'fa-icons'
+import React from "react";
+import {ReactSession} from "react-client-session";
+import {useHistory} from "react-router-dom";
+import "./home.css";
 
 const Home = () => {
 
@@ -14,9 +10,9 @@ const Home = () => {
   const history = useHistory();
 
   if(token != "true") {
-    history.push('/')
+    history.push("/");
     return(
-      <div style={'height:100'}></div>
+      <div style={"height:100"}></div>
     );
   }
 
@@ -26,21 +22,15 @@ const Home = () => {
 
     <nav className="breadcrumb" aria-label="breadcrumbs">
       <ul>
-        <li><Link to={`/home`}>Home</Link></li>
+        <li><a href="/home">Home</a></li>
       </ul>
     </nav>
 
-    <MDBCard className='column is-10'>
-
-      <MDBCol>
-
-        <MDBRow>
-          <center><MDBCol><h2 className='is-size-2'>Welcome</h2></MDBCol></center>
-        </MDBRow>
-
-      </MDBCol>
-
-    </MDBCard>
+    <div className="cardContainer column is-10">
+      <center>
+        <div className="is-size-2">Welcome</div>
+      </center>
+    </div>
 
   </div>
 

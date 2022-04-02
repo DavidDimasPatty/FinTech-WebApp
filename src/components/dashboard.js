@@ -1,11 +1,8 @@
-import React, {useEffect, useState} from 'react'
-import {ReactSession} from 'react-client-session'
-import {NavLink} from 'react-router-dom'
-import axios from 'axios'
-import {Link} from 'react-router-dom'
-import {ProSidebar, Menu, MenuItem, SubMenu, SidebarContent, SidebarFooter} from 'react-pro-sidebar'
-import 'react-pro-sidebar/dist/css/styles.css'
-import './dashboard.css'
+import React from "react";
+import {ReactSession} from "react-client-session";
+import {NavLink} from "react-router-dom";
+import "react-pro-sidebar/dist/css/styles.css";
+import "./dashboard.css";
 
 function logout() {
   ReactSession.set("login", "false");
@@ -15,7 +12,7 @@ const Dashboard = ({collapsed, toggled, handleToggleSidebar}) => {
 
   return (
 
-  <div className="navMenu">
+  <div className="sidebarMenu">
 
     <section className="main-content columns is-fullheight">
 

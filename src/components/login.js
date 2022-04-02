@@ -1,10 +1,9 @@
-import React, {useEffect, useState, Fragment} from 'react'
-import {useHistory, useParams} from 'react-router-dom'
-import {ReactSession} from 'react-client-session'
-import {Link} from 'react-router-dom'
-import axios from 'axios'
-import 'bulma/css/bulma.min.css'
-import './login.css'
+import React, {useState} from "react";
+import {useHistory} from "react-router-dom";
+import {ReactSession} from "react-client-session";
+import axios from "axios";
+import "bulma/css/bulma.min.css";
+import "./login.css";
 
 const Login = () => {
 
@@ -17,7 +16,9 @@ const Login = () => {
   const history = useHistory();
 
   const login = async (e) => {
-    if(username && password){
+    
+    if(username && password) {
+      
       const devEnv = process.env.NODE_ENV !== "production";
       const {REACT_APP_DEV_URL, REACT_APP_PROD_URL} = process.env;
   
@@ -27,6 +28,7 @@ const Login = () => {
           password:password
         }
       }).then((respon) => {
+
         if(respon.data.length !== 0) {
           // console.log("success");
           // console.log(respon.data);
@@ -34,15 +36,16 @@ const Login = () => {
           history.push("/home");
         }
         else{
-          console.log("failed to login.");
+          // console.log("failed to login.");
+          window.alert("Invalid username or password");
         }
+
       }).catch((err) => console.log(err));
+
     }
     else{
-      window.alert("username and password can't be empty")
+      window.alert("Username or password can't be empty");
     }
-
-
 
   }
   
@@ -50,23 +53,19 @@ const Login = () => {
 
   <center>
 
-    <div className='loginContainer'>
+    <div className="loginContainer">
       
-      <div className='loginTitle'>Log In</div>
+      <div className="loginTitle">Log In</div>
       
-      <div className='loginLabel'>Username</div>
-      <div className='loginInput'>
-        <input type="text" onChange={e => setUserName(e.target.value)} spellCheck="false" required/>
-      </div>
+      <div className="loginLabel">Username</div>
+      <div className="loginInput"><input type="text" onChange={e => setUserName(e.target.value)} spellCheck="false" required/></div>
 
-      <div className='loginLabel'>Password</div>
-      <div className='loginInput'>
-        <input type="password" onChange={e => setPassword(e.target.value)} required/>
-      </div>
+      <div className="loginLabel">Password</div>
+      <div className="loginInput"><input type="password" onChange={e => setPassword(e.target.value)} required/></div>
 
       <button className="loginButton" onClick={login}>Login</button>
       
-      <Link to={"/signup"} className="linkButton"><button className="signupButton">Sign Up</button></Link>
+      <a href="/signup" className="linkButton"><button className="signupButton">Sign Up</button></a>
     
     </div>
 

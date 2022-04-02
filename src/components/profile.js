@@ -1,17 +1,15 @@
-import React from 'react'
-import {ReactSession} from 'react-client-session'
-import {useState, useEffect} from 'react'
-import axios from 'axios'
-import {Link} from 'react-router-dom'
-import {useHistory, useParams} from 'react-router-dom'
-import './profile.css'
-import {MDBContainer, MDBRow, MDBCol, MDBCard, MDBBtn} from 'mdbreact'
+import React, {useState, useEffect} from "react";
+import {ReactSession} from "react-client-session";
+import {useHistory, useParams} from "react-router-dom";
+import axios from "axios";
+import "./profile.css";
 
 const Profile = () => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [birth, setBirth] = useState('');
-    const [country, setCountry] = useState('');
+
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [birth, setBirth] = useState("");
+    const [country, setCountry] = useState("");
     const {id} = useParams();
     const history=useHistory();
     
@@ -22,7 +20,7 @@ const Profile = () => {
     const getProfile = async () => {
       const devEnv = process.env.NODE_ENV !== "production";
       const {REACT_APP_DEV_URL, REACT_APP_PROD_URL} = process.env;
-      const response = await axios.get(`${devEnv  ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}/customer/${id}`,)
+      const response = await axios.get(`${devEnv ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}/customer/${id}`,)
       // console.log(response.status);
       // console.log(response.data);
       setName(response.data.name);
@@ -35,52 +33,38 @@ const Profile = () => {
     // console.log(token);
   
     if(token != "true") {
-      history.push('/')
+      history.push("/");
       return(
-        <div style={'height:100'}></div>
+        <div style={"height:100"}></div>
       );
     }
     
-    return(
+    return (
+
     <div className="container column is-20">
 
       <nav className="breadcrumb" aria-label="breadcrumbs">
         <ul>
-          <li><Link to={`/home`}>Home</Link></li>
-          <li><Link to={`/customers`}>Customer List</Link></li>
-          <li><Link to={`/customers/${id}`}>Detail</Link></li>
+          <li><a href="/home">Home</a></li>
+          <li><a href="/customers">Customer List</a></li>
+          <li><a href={`/customers/${id}`}>Detail</a></li>
         </ul>
       </nav>
 
-      <MDBCard className='mt-5 column is-10'>
+      <div className="cardContainer mt-5 column is-10">
 
-        <MDBCol>
-
-          <MDBRow className='mb-2'>
-            <center><MDBCol> <img src="https://www.kindpng.com/picc/m/451-4517876_default-profile-hd-png-download.png" width={90} height={100}></img></MDBCol></center>
-          </MDBRow>
-          
-          <MDBRow>
-            <center><MDBCol><h3 className='is-size-2'>{name}</h3></MDBCol></center>
-          </MDBRow>
-          
-          <MDBRow>
-            <center><MDBCol><h3 className='is-size-2'>{email}</h3></MDBCol></center>
-          </MDBRow>
-          
-          <MDBRow>
-            <center><MDBCol><h3 className='is-size-2'>{birth}</h3></MDBCol></center>
-          </MDBRow>
-          
-          <MDBRow>
-            <center><MDBCol><h3 className='is-size-2'>{country}</h3></MDBCol></center>
-          </MDBRow>
-          
-        </MDBCol>
+        <center>
+          <img className="profileImage" src="https://freepikpsd.com/file/2019/10/default-profile-image-png-1-Transparent-Images.png"/>
+          <div className="is-size-2">{name}</div>
+          <div className="is-size-2">{email}</div>
+          <div className="is-size-2">{birth}</div>
+          <div className="is-size-2">{country}</div>
+        </center>
         
-      </MDBCard>
+      </div>
     
     </div>
+
     )
 
 }

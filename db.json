@@ -37,8 +37,15 @@
       "createdAt": "31-03-2022 12:54:55",
       "updatedAt": "31-03-2022 12:54:55",
       "id": 5
+    },
+    {
+      "username": "abc",
+      "password": "abc",
+      "email": "abc",
+      "createdAt": "02-04-2022 09:37:35",
+      "updatedAt": "02-04-2022 09:37:35",
+      "id": 6
     }
-
   ],
   "customer": [
     {
