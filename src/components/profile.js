@@ -55,10 +55,26 @@ const Profile = () => {
 
         <center>
           <img className="profileImage" src="https://freepikpsd.com/file/2019/10/default-profile-image-png-1-Transparent-Images.png"/>
-          <div className="is-size-2">{name}</div>
-          <div className="is-size-2">{email}</div>
-          <div className="is-size-2">{birth}</div>
-          <div className="is-size-2">{country}</div>
+          <div className="profileInfo">
+            <div className="is-size-4">Name</div>
+            <span className="is-size-4">:</span>
+            <div className="is-size-4">{(name === "" || name == null) ? "-" : name}</div>
+          </div>
+          <div className="profileInfo">
+            <div className="is-size-4">Email</div>
+            <span className="is-size-4">:</span>
+            <div className="is-size-4">{(email === "" || email == null) ? "-" : email}</div>
+          </div>
+          <div className="profileInfo">
+            <div className="is-size-4">Birth</div>
+            <span className="is-size-4">:</span>
+            <div className="is-size-4">{(birth === "" || birth == null) ? "-" : birth}</div>
+          </div>
+          <div className="profileInfo">
+            <div className="is-size-4">Country</div>
+            <span className="is-size-4">:</span>
+            <div className="is-size-4">{(country === "" || country == null) ? "-" : country}</div>
+          </div>
         </center>
         
       </div>
